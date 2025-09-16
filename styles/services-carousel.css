@@ -1,0 +1,140 @@
+/* 3D Carousel Styles */
+.services-carousel-3d-wrapper {
+    perspective: 2000px;
+    width: 100%;
+    max-width: 1200px;
+    height: 800px;
+    position: relative;
+    margin: 0 auto;
+    padding: 200px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.services-carousel-3d {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    transform: translateY(100px);
+}
+
+.carousel-card {
+    position: absolute;
+    width: 280px;
+    height: 340px;
+    left: 50%;
+    top: 40%;
+    transform-origin: 50% 50% -175px;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    cursor: pointer;
+    text-decoration: none;
+    transform-style: preserve-3d;
+    will-change: transform;
+    overflow: visible;
+    z-index: 1;
+}
+
+.carousel-card .card-inner {
+    background: rgba(30, 30, 40, 0.9);
+    border-radius: 1rem;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    backface-visibility: hidden;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    background: rgba(30, 30, 40, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.card-image-wrapper {
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px 12px 0 0;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.card-content {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(30, 30, 40, 0.95), rgba(20, 20, 30, 0.98));
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Position cards in 3D space */
+.carousel-card[style*="--i:0"] { transform: translate(-50%, -50%) rotateY(0deg) translateZ(320px) translateY(-50px); }
+.carousel-card[style*="--i:1"] { transform: translate(-50%, -50%) rotateY(60deg) translateZ(320px) translateY(-50px); }
+.carousel-card[style*="--i:2"] { transform: translate(-50%, -50%) rotateY(120deg) translateZ(320px) translateY(-50px); }
+.carousel-card[style*="--i:3"] { transform: translate(-50%, -50%) rotateY(180deg) translateZ(320px) translateY(-50px); }
+.carousel-card[style*="--i:4"] { transform: translate(-50%, -50%) rotateY(240deg) translateZ(320px) translateY(-50px); }
+.carousel-card[style*="--i:5"] { transform: translate(-50%, -50%) rotateY(300deg) translateZ(320px) translateY(-50px); }
+
+/* Active card styles */
+.carousel-card.active {
+    z-index: 1;
+}
+
+/* Hover effects */
+.carousel-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .services-carousel-3d-wrapper {
+        perspective: 1200px;
+    }
+    
+    .carousel-card {
+        width: 280px;
+        height: 380px;
+    }
+}
